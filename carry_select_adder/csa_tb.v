@@ -26,7 +26,7 @@ module csa_tb;
     B <= 16'd0;
 
 
-    // Check the carryout propagation
+    // For detail, see 'display' lines.
     #5;
     A <= 16'b0000_0000_0000_1100;
     B <= 16'b0000_0000_0000_1010;

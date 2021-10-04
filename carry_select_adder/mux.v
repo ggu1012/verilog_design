@@ -6,17 +6,15 @@ module mux4(
     output carryout
   );
 
-  /*  MUX structure
+  /*  MUX4 structure
   
                         ---------
     in0[4bit]    ------\         \
     in1[4bit]    ------\         \------ result [4bit]
-                       \   MUX   \
+                       \   MUX4  \
     carry0[1bit] ------\         \------ carryout [1bit]
     carry1[1bit] ------\         \
                         ----------
-
-
   */
 
   assign result = sel? in1: in0;
@@ -30,6 +28,14 @@ module mux16(
   input mod,
   output [15:0] out
 );
+
+  /*  MUX16 structure
+  
+                        ---------
+    in0[16bit]   ------\  MUX16  \
+    in1[16bit]   ------\         \------ result [16bit]
+                        ----------
+  */
 
 assign out = mod? in1: in0;
 
