@@ -26,6 +26,9 @@ module CSA(
   wire c2_0, c2_1;
   wire c3_0, c3_1;
 
+/* 3 wires for propagating each carryout of 4-bit block*/
+  wire c0, c1, c2;
+
   wire [3:0] A0 = A[3:0];
   wire [3:0] A1 = A[7:4];
   wire [3:0] A2 = A[11:8];
