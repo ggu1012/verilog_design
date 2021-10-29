@@ -1,6 +1,3 @@
-`include "4bitAdder.v"
-`include "mux.v"
-
 module CSA(
     input [15:0] A,
     input [15:0] B,
@@ -26,7 +23,7 @@ module CSA(
   wire c2_0, c2_1;
   wire c3_0, c3_1;
 
-/* 3 wires for propagating each carryout of 4-bit block*/
+  /* 3 wires for propagating each carryout of 4-bit block*/
   wire c0, c1, c2;
 
   wire [3:0] A0 = A[3:0];
@@ -43,7 +40,7 @@ module CSA(
 
   // mod=1 chooses B for subtractor.
   mux16 s0(B, ~B, mod, X);
-  
+
   fourBitAdder zero_0(A0, X0, 1'b0, carryzero[3:0], c0_0);
   fourBitAdder one_0(A0, X0, 1'b1, carryone[3:0], c0_1);
   mux4 m0(carryzero[3:0], carryone[3:0], c0_0, c0_1, mod, Y[3:0], c0);
@@ -59,5 +56,5 @@ module CSA(
   fourBitAdder zero_3(A3, X3, 1'b0, carryzero[15:12], c3_0);
   fourBitAdder one_3(A3, X3, 1'b1, carryone[15:12], c3_1);
   mux4 m3(carryzero[15:12], carryone[15:12], c3_0, c3_1, c2, Y[15:12], overflow);
-  
+
 endmodule

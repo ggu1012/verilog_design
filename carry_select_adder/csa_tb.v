@@ -1,10 +1,8 @@
-`include "carrySelectAdder.v"
 `timescale 10ps / 1ps
 
 /*
  Testbench for 16-bit carry select adder
 */
-
 
 module csa_tb;
 
